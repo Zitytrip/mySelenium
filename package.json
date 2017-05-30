@@ -1,0 +1,22 @@
+{
+  "name": "myselenium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "demoSeleniumDownloadFile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/awb99/mySelenium.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/awb99/mySelenium/issues"
+  },
+  "homepage": "https://github.com/awb99/mySelenium#readme",
+  "dependencies": {
+    "selenium-webdriver": "^3.4.0"
+  }
+}
