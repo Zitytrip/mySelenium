@@ -1,0 +1,18 @@
+[Unit]
+Description=X Virtual Frame Buffer Service
+After=network.target
+
+Requires=mongodb.service
+After=mongodb.service
+
+[Service]
+ExecStart=/usr/bin/Xvfb :8 -screen 3 1024x768x24
+Restart=always
+User=root
+Group=root 
+
+
+[Install]
+WantedBy=multi-user.target
+
+
