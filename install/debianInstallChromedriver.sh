@@ -1,5 +1,6 @@
 sudo apt-get install unzip
 
+# https://sites.google.com/a/chromium.org/chromedriver/
 cd /tmp
 wget -N http://chromedriver.storage.googleapis.com/2.26/chromedriver_linux64.zip
 unzip chromedriver_linux64.zip
