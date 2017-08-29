@@ -83,7 +83,10 @@ function getChromium(downloadDir, profileDir) {
     var binPath = "/usr/lib/chromium/chromium"; // on debian
     //var binPath = "/usr/lib/chromium"; // on manjaro Xfce (DOES NOT WORK!)
 
-    fs.unlinkSync(logToFile);
+    if (fs.existsSync(logToFile)) {
+        fs.unlinkSync(logToFile);
+    }
+
 
     console.log(`Getting Chromium: binDir: ${binPath} downloadDir: ${downloadDir} profileDir:${profileDir}`);
     var chrome = require("selenium-webdriver/chrome");

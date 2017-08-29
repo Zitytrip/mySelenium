@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/awb99/mySelenium#readme",
   "dependencies": {
+    "bluebird": "^3.5.0",
     "selenium-webdriver": "^3.4.0"
   }
 }
