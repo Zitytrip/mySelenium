@@ -6,11 +6,6 @@ var selenium = require('selenium-webdriver'),
 
 var chrome = require("selenium-webdriver/chrome");
 
-async function getChrome1(downloadDir, profileDir) {
-  
-   
-}
-
 function getChrome(downloadDir, profileDir, browserVisible) {
     //var binPath = "/opt/google/chrome/chrome" // chrome 62 on manjaro
     var binPath = "/usr/bin/google-chrome"; // chrome 62 on debian jessie
@@ -21,6 +16,9 @@ function getChrome(downloadDir, profileDir, browserVisible) {
     // Set OPTIONS
     var o = new chrome.Options();
     o.setChromeBinaryPath(binPath);
+
+
+    o.addArguments("profile.block_third_party_cookies=false");
 
 
     // Download Directory
@@ -62,8 +60,7 @@ function getChrome(downloadDir, profileDir, browserVisible) {
         o.addArguments("--enable-screenshot-testing-with-mod");
     }
 
-    o.addArguments("profile.block_third_party_cookies=false");
-
+   
     // var cap = selenium.Capabilities.chrome();
     //  console.log(cap);
     //  var driver = new selenium.Builder()

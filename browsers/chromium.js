@@ -24,7 +24,9 @@ function getChromium(downloadDir, profileDir, browserVisible) {
     var o = new chrome.Options();
     o.setChromeBinaryPath(binPath);
     o.addArguments("--disable-extensions");
-
+    //o.addArguments("disable-popup-blocking");
+    
+    // https://peter.sh/experiments/chromium-command-line-switches/
 
     if (browserVisible) {
         o.addArguments("--start-maximized");
