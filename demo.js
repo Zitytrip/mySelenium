@@ -61,8 +61,8 @@ async function demo () {
     var profileDir = "/tmp/demoProfile";
     var browserVisible = false; // true;
 
-    //var driver = seleniumDriver.getChrome(downloadDir, profileDir, browserVisible);
-    var driver = seleniumDriver.getChromium(downloadDir, profileDir, browserVisible);
+    var driver = seleniumDriver.getChrome(downloadDir, profileDir, browserVisible);
+    //var driver = seleniumDriver.getChromium(downloadDir, profileDir, browserVisible);
     //var driver = seleniumDriver.getSauce();
     //var driver = seleniumDriver.getFirefox(downloadDir, profileDir)
 
