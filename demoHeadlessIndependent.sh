@@ -5,12 +5,12 @@ if [ "$(id -u)" == "0" ]; then
    exit 1
 fi
 
-sudo killall Xvfb
-sudo Xvfb :5 -screen 8 1024x768x8 &
+killall Xvfb
+Xvfb :5 -screen 8 1024x768x8 &
 
 echo "Listing known displays:"
 ls /tmp/.X11-unix
 
 export DISPLAY=:5.8
 ./demo.sh
-sudo killall Xvfb
+killall Xvfb
