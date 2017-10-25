@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/awb99/mySelenium#readme",
   "dependencies": {
-    "selenium-webdriver": "^3.4.0"
+    "chromedriver": "^2.33.2",
+    "selenium-webdriver": "^3.6.0",
+    "sleep-promise": "^2.0.0"
   }
 }

@@ -10,7 +10,7 @@ INSTALLATION
 
 1. // Use npm package manager to install selenium
    npm install selenium-webdriver
-   "selenium-webdriver": "^3.4.0",
+   "selenium-webdriver": "^3.6.0",
 
 2. DRIVERS for Selenium (Chromium, Chrome, Firefox, etc)
 
@@ -18,14 +18,15 @@ INSTALLATION
    Chromium installs to /usr/lib/chromium
    To test if it is installed, enter 'chromedriver' in terminal, shows 2.29
    Debian:  see debianInstallChromedriver.sh
-   NPM: in package.json:  "chromedriver": "^2.29.0",
+   NPM: in package.json:  "chromedriver": "^2.33.1",
    Arch: yaourt -S chromedriver  Note: IT SEEMS Chromium already comes installed with Chromedriver;
    the package chromedriver is in conflict. 
 
 2b. Chrome
     Chrome installs to /opt/google/chrome-unstable/chrome
-    Chrome v60 itself does not work. This gets errors: https://stackoverflow.com/questions/43982934/selenium-webdriverjs-javascript-with-chrome
-          https://github.com/SeleniumHQ/selenium/issues/3070
+    Chrome v60 itself does not work. This gets errors: 
+    https://stackoverflow.com/questions/43982934/selenium-webdriverjs-javascript-with-chrome
+    https://github.com/SeleniumHQ/selenium/issues/3070
 
 2c. Firefox:   
     yaourt -S geckodriver   
