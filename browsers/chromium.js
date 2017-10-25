@@ -12,7 +12,9 @@ function getChromium(downloadDir, profileDir, browserVisible) {
     var binPath = "/usr/lib/chromium/chromium"; // on debian
     //var binPath = "/usr/lib/chromium"; // on manjaro Xfce (DOES NOT WORK!)
 
-    fs.unlinkSync(logToFile);
+    if  (fs.existsSync (logToFile)) {
+        fs.unlinkSync(logToFile);
+    }
 
     console.log(`Getting Chromium: binDir: ${binPath} downloadDir: ${downloadDir} profileDir:${profileDir}`);
    
@@ -20,28 +22,32 @@ function getChromium(downloadDir, profileDir, browserVisible) {
     // Set OPTIONS
     var o = new chrome.Options();
     o.setChromeBinaryPath(binPath);
-  
+    //o.addArguments("--disable-extensions");
+
 
     if (browserVisible) {
         o.addArguments("--start-maximized");
     }
     else {
+        // o.addArguments("headless");
+        o.addArguments("window-size=1200,600");
         o.addArguments("--headless"); // Runs Chrome in headless mode.
         o.addArguments("--disable-gpu"); // # Temporarily needed for now.
     }  
 
-    //o.addArguments("--disable-extensions");
+
     if (profileDir !== undefined) {
         o.addArguments("user-data-dir=" + profileDir);
     } else {
         console.log("ERR: No profileDir defined!");
     }
-    o.addArguments("download.default_directory=" + downloadDir);
-    // o.addArguments("headless");
-    // o.addArguments("window-size=1200x600");
-    o.setUserPreferences({
-        "download.default_directory": downloadDir
-    });
+
+    if(downloadDir != undefined) {
+        o.addArguments("download.default_directory=" + downloadDir);
+        o.setUserPreferences({
+            "download.default_directory": downloadDir
+        });
+    }
 
     // var cap = selenium.Capabilities.chrome();
     //  console.log(cap);

@@ -1,4 +1,5 @@
 var fs = require("fs"),
+    moment = require("moment"),
 
     selenium = require ('selenium-webdriver'),
     By = selenium.By,
@@ -30,10 +31,34 @@ async function getBody (driver )  {
     return innerHTML;   
 }
 
+async function saveHtml(driver,fullFn) {
+    try {
+        var body = await getBody (driver);
+        var pWriteFile = Promise.promisify (fs.writeFile);
+        await pWriteFile(fullFn, body);
+    }
+    catch (err) {
+        console.log(`saveToFile error for ${fullFn}: ${err}.` );
+    };
+}
+
+async function takeScreenshot (driver, name ) {
+    if (name==undefined) name ="screenshot";
+    var fn = `/tmp/${moment().format("YYYYMMDD_HHmmss")}_selenium_${name}.png`;
+
+    await driver.takeScreenshot().then(function(data){
+        var base64Data = data.replace(/^data:image\/png;base64,/,"")
+        fs.writeFile(fn, base64Data, 'base64', function(err) {
+            if(err) console.log("takeScreenshot error: " + err);
+        });
+    });
+}
+
+
 
 async function demo () {
     var downloadDir = "/tmp/demo";
-    var profileDir = "/tmp/demo";
+    var profileDir = "/tmp/demoProfile";
     var browserVisible = false; // true;
 
     //var driver = seleniumDriver.getChrome(downloadDir, profileDir, browserVisible);
@@ -65,16 +90,18 @@ async function demo () {
 
     await sleep (3000);
 
-    var body_element = await driver.findElement( By.tagName("body"));
+    //var body_element = await driver.findElement( By.tagName("body"));
    // var t = body_element.getText();
-   var t = await getBody (driver);
-    console.log(t);
+   //var t = await getBody (driver);
+    //console.log(t);
 
 
     console.log("taking Screenshot of google");
-    var image = await driver.takeScreenshot();
-    fs.writeFile('output/google.png', image, 'base64', function(err) { if (err) console.log("ERROR Saving google.png");    });
+    //var image = await driver.takeScreenshot();
+    //fs.writeFile('output/google.png', image, 'base64', function(err) { if (err) console.log("ERROR Saving google.png");    });
     
+    await saveHtml (driver, "/tmp/google.html");
+    await takeScreenshot (driver, "google" );
 
     //console.log("sending CTRL + TAB (to switch the tab)");
     //await new ActionSequence(driver).keyDown(Key.CONTROL).sendKeys(Key.TAB).keyUp(Key.CONTROL).perform();
@@ -89,8 +116,11 @@ async function demo () {
     var t = await driver.getTitle();
     console.log("title: ", t);
     console.log("taking Screenshot of bing");
-    var imageBing = await driver.takeScreenshot();
-    fs.writeFile('output/bing.png', imageBing, 'base64', function(err, msg) { if (err) console.log("Error: " + err);  });
+    //var imageBing = await driver.takeScreenshot();
+    //fs.writeFile('output/bing.png', imageBing, 'base64', function(err, msg) { if (err) console.log("Error: " + err);  });
+    await saveHtml (driver, "/tmp/bing.html");
+    await takeScreenshot (driver, "bing" );
+
 
     console.log ("switching to google window");
     driver.switchTo().window(handles[1]);
