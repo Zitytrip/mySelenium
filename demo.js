@@ -1,34 +1,23 @@
-<<<<<<< HEAD
 var fs = require("fs"),
+
     selenium = require ('selenium-webdriver'),
-=======
-var Promise = require("bluebird");
-Promise.longStackTraces(); // nice stack traces for promises!
-
-
-async function test () {
-
-var selenium = require ('selenium-webdriver'),
->>>>>>> dd41f2bd25f5e318298cdc0d997ca1c99d387c1f
     By = selenium.By,
     until = selenium.until,
     Select = selenium.Select,
     Key = selenium.Key,
     ActionSequence = selenium.ActionSequence,
     Window = selenium.Window,
+
     sleep = require("sleep-promise");
 
 
 var seleniumDriver = require ("./seleniumDriver.js");
 
-<<<<<<< HEAD
-=======
+var Promise = require("bluebird");
+Promise.longStackTraces(); // nice stack traces for promises!
 
-console.log(`gettin chromium with downloadDir: ${downloadDir} profileDir: ${profileDir} `);
-var driver = seleniumDriver.getChromium(downloadDir, profileDir);
-//var driver = seleniumDriver.getSauce();
-//var driver = seleniumDriver.getFirefox(downloadDir, profileDir)
->>>>>>> dd41f2bd25f5e318298cdc0d997ca1c99d387c1f
+
+
 
 async function getBody (driver )  {
    var innerHTML = await driver.executeScript( function() { 
@@ -42,15 +31,13 @@ async function getBody (driver )  {
 }
 
 
-
-
 async function demo () {
     var downloadDir = "/tmp/demo";
     var profileDir = "/tmp/demo";
     var browserVisible = false; // true;
 
     //var driver = seleniumDriver.getChrome(downloadDir, profileDir, browserVisible);
-    var driver = seleniumDriver.getChromium(downloadDir, profileDir);
+    var driver = seleniumDriver.getChromium(downloadDir, profileDir, browserVisible);
     //var driver = seleniumDriver.getSauce();
     //var driver = seleniumDriver.getFirefox(downloadDir, profileDir)
 
