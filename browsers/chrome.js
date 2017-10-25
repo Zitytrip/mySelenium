@@ -12,8 +12,7 @@ async function getChrome1(downloadDir, profileDir) {
 }
 
 function getChrome(downloadDir, profileDir, browserVisible) {
-    //var binPath = "/opt/google/chrome-unstable"; // on debian
-    //var binPath = "/usr/lib/chromium" // on manjaro Xfce
+    //var binPath = "/opt/google/chrome/chrome" // chrome 62 on manjaro
     var binPath = "/usr/bin/google-chrome"; // chrome 62 on debian jessie
 
 
