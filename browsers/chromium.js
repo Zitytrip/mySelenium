@@ -9,14 +9,14 @@ var selenium = require('selenium-webdriver'),
 
 function getChromium(downloadDir, profileDir, browserVisible) {
     var logToFile = '/tmp/chromescraper.txt';
-    var binPath = "/usr/lib/chromium/chromium"; // on debian
-    //var binPath = "/usr/lib/chromium"; // on manjaro Xfce (DOES NOT WORK!)
+    //var binPath = "/usr/lib/chromium/chromium"; // on debian
+    var binPath = "/usr/lib/chromium"; // on manjaro Xfce (DOES NOT WORK!)
 
     if  (fs.existsSync (logToFile)) {
         fs.unlinkSync(logToFile);
     }
 
-    console.log(`Getting Chromium: binDir: ${binPath} downloadDir: ${downloadDir} profileDir:${profileDir}`);
+    console.log(`Getting Chromium: binPath: ${binPath} downloadDir: ${downloadDir} profileDir:${profileDir}`);
    
 
     // Set OPTIONS
