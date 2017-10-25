@@ -53,6 +53,7 @@ function getChrome(downloadDir, profileDir, browserVisible) {
         o.addArguments("--enable-screenshot-testing-with-mod");
     }
 
+    o.addArguments("profile.block_third_party_cookies=false");
 
     // var cap = selenium.Capabilities.chrome();
     //  console.log(cap);

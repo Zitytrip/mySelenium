@@ -89,23 +89,16 @@ async function demo () {
     //driver.findElement(By.css("body")).sendKeys(Key.CONTROL + "t");
     //var newTabInstance = driver.WindowHandles[driver.WindowHandles.Count-1].ToString();
 
-    console.log("getting news.google.com");
-    await driver.get ("http://news.google.com");
-
+    console.log("getting www.whatismybrowser.com");
+    await driver.get ("https://www.whatismybrowser.com/");
     await sleep (3000);
 
-    //var body_element = await driver.findElement( By.tagName("body"));
-   // var t = body_element.getText();
-   //var t = await getBody (driver);
-    //console.log(t);
-
-
-    console.log("taking Screenshot of google");
+    console.log("taking Screenshot of .whatismybrowser.com");
     //var image = await driver.takeScreenshot();
     //fs.writeFile('output/google.png', image, 'base64', function(err) { if (err) console.log("ERROR Saving google.png");    });
     
-    await saveHtml (driver, "/tmp/google.html");
-    await takeScreenshot (driver, "google" );
+    await saveHtml (driver, "/tmp/whatismybrowser.com.html");
+    await takeScreenshot (driver, "whatismybrowser.com" );
 
     //console.log("sending CTRL + TAB (to switch the tab)");
     //await new ActionSequence(driver).keyDown(Key.CONTROL).sendKeys(Key.TAB).keyUp(Key.CONTROL).perform();
