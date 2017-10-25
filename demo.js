@@ -1,5 +1,15 @@
+<<<<<<< HEAD
 var fs = require("fs"),
     selenium = require ('selenium-webdriver'),
+=======
+var Promise = require("bluebird");
+Promise.longStackTraces(); // nice stack traces for promises!
+
+
+async function test () {
+
+var selenium = require ('selenium-webdriver'),
+>>>>>>> dd41f2bd25f5e318298cdc0d997ca1c99d387c1f
     By = selenium.By,
     until = selenium.until,
     Select = selenium.Select,
@@ -11,6 +21,14 @@ var fs = require("fs"),
 
 var seleniumDriver = require ("./seleniumDriver.js");
 
+<<<<<<< HEAD
+=======
+
+console.log(`gettin chromium with downloadDir: ${downloadDir} profileDir: ${profileDir} `);
+var driver = seleniumDriver.getChromium(downloadDir, profileDir);
+//var driver = seleniumDriver.getSauce();
+//var driver = seleniumDriver.getFirefox(downloadDir, profileDir)
+>>>>>>> dd41f2bd25f5e318298cdc0d997ca1c99d387c1f
 
 async function getBody (driver )  {
    var innerHTML = await driver.executeScript( function() { 
