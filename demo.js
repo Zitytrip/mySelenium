@@ -59,7 +59,8 @@ async function takeScreenshot (driver, name ) {
 async function demo () {
     var downloadDir = "/tmp/demo";
     var profileDir = "/tmp/demoProfile";
-    var browserVisible = false; // true;
+    //var browserVisible = false; 
+    var browserVisible = true;
 
     var driver = seleniumDriver.getChrome(downloadDir, profileDir, browserVisible);
     //var driver = seleniumDriver.getChromium(downloadDir, profileDir, browserVisible);
@@ -104,6 +105,12 @@ async function demo () {
     //await new ActionSequence(driver).keyDown(Key.CONTROL).sendKeys(Key.TAB).keyUp(Key.CONTROL).perform();
     //driver.findElement(By.css("body")).sendKeys(Key.CONTROL + "t");
 
+    var downloadURL = "https://download.samba.org/pub/rsync/rsync-patches-3.1.2.tar.gz";
+    await driver.get (downloadURL); // download url (saves file..)
+    console.log("File downloaded: " + downloadURL);
+
+
+
     console.log("switching to bing window (left window)");
     await driver.switchTo().window(handles[0]);
     console.log("getting bing..");
@@ -135,6 +142,7 @@ async function demo () {
     var myhandle = await driver.getWindowHandle();
     console.log("my window handle:" , myhandle);
 
+    await sleep (100000);
     driver.quit();
 
     return;
@@ -158,6 +166,7 @@ async function demo () {
     //driver.get('http://static.mozilla.com/moco/en-US/pdf/mozilla_privacypolicy.pdf')
     driver.get ("http://dev-builds.libreoffice.org/tmp/test.xlsx");
 
+    
     driver.quit();
 
 }

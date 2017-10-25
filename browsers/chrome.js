@@ -12,8 +12,8 @@ async function getChrome1(downloadDir, profileDir) {
 }
 
 function getChrome(downloadDir, profileDir, browserVisible) {
-    var binPath = "/opt/google/chrome/chrome" // chrome 62 on manjaro
-    //var binPath = "/usr/bin/google-chrome"; // chrome 62 on debian jessie
+    //var binPath = "/opt/google/chrome/chrome" // chrome 62 on manjaro
+    var binPath = "/usr/bin/google-chrome"; // chrome 62 on debian jessie
 
 
     console.log(`Getting Chrome: downloadDir: ${downloadDir} profileDir:${profileDir} binPath:${binPath} browserVisible: ${browserVisible}`);
@@ -26,15 +26,24 @@ function getChrome(downloadDir, profileDir, browserVisible) {
     // Download Directory
     if (downloadDir != undefined) {
         o.setUserPreferences({
-            "download.default_directory": downloadDir
+            "download.default_directory": downloadDir,
+            "download.prompt_for_download": "false",
+            "download.extensions_to_open": ""
+            // "download.directory_upgrade": "true",
         });
         o.addArguments("download.default_directory=" + downloadDir); // /tmp/bookingScraper");
     }
+
 
     // Profile Directory
     if (profileDir != undefined) {
         // --user-data-dir=/tmp/.org.chromium.Chromium.vRCwC6
         o.addArguments("user-data-dir=" + profileDir);
+
+        // --data-path ⊗ 	Makes Content Shell use the given path for its data directory.
+        // --parent-profile ⊗	Specifies the path to the user data folder for the parent profile. ↪
+       // --profile-directory ⊗	Selects directory of profile to associate with the first browser launched. ↪
+       // --user-data-dir ⊗	Directory where the browser stores the user profile. ↪
     }
 
    
