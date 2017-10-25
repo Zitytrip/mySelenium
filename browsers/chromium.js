@@ -9,10 +9,11 @@ var selenium = require('selenium-webdriver'),
 
 function getChromium(downloadDir, profileDir, browserVisible) {
     var logToFile = '/tmp/chromescraper.txt';
-    //var binPath = "/usr/lib/chromium/chromium"; // on debian
-    var binPath = "/usr/lib/chromium"; // on manjaro Xfce (DOES NOT WORK!)
+    var binPath = "/usr/lib/chromium/chromium"; // on debian and also on manjaro
+   
 
     if  (fs.existsSync (logToFile)) {
+        console.log("Unlinking old file: " + logToFile);
         fs.unlinkSync(logToFile);
     }
 
@@ -22,16 +23,16 @@ function getChromium(downloadDir, profileDir, browserVisible) {
     // Set OPTIONS
     var o = new chrome.Options();
     o.setChromeBinaryPath(binPath);
-    //o.addArguments("--disable-extensions");
+    o.addArguments("--disable-extensions");
 
 
     if (browserVisible) {
         o.addArguments("--start-maximized");
     }
     else {
-        // o.addArguments("headless");
-        o.addArguments("window-size=1200,600");
+        o.addArguments("window-size=1900,900");
         o.addArguments("--headless"); // Runs Chrome in headless mode.
+        o.addArguments("headless"); // 2017 10 26 fh: it appears, that "--headless and also "headless" both work
         o.addArguments("--disable-gpu"); // # Temporarily needed for now.
     }  
 
@@ -47,15 +48,9 @@ function getChromium(downloadDir, profileDir, browserVisible) {
         o.setUserPreferences({
             "download.default_directory": downloadDir
         });
+    } else {
+        console.log("ERR: No DownloadDir Defined!");
     }
-
-    // var cap = selenium.Capabilities.chrome();
-    //  console.log(cap);
-    //  var driver = new selenium.Builder()
-    //    .withCapabilities(cap)
-    //     .setChromeOptions(o)
-    //.setProxy(proxy.manual({ http: '127.0.0.1:9000'}))
-    //    .build();
 
     var service = new chrome.ServiceBuilder()
         .loggingTo(logToFile)
