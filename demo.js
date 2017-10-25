@@ -69,6 +69,10 @@ async function demo () {
     console.log("driver capabilities:");
     await driver.getCapabilities().then(console.log);
 
+
+    var cookies = await driver.manage().getCookies();
+    console.log("cookies: " + JSON.stringify(cookies));
+
     console.log("opening new tab");
     await driver.executeScript('window.open();');
 
