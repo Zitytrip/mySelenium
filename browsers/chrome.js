@@ -16,7 +16,7 @@ function getChrome(downloadDir, profileDir, browserVisible) {
     var binPath = "/usr/bin/google-chrome"; // chrome 62 on debian jessie
 
 
-    console.log(`Getting Chrome: downloadDir: ${downloadDir} profileDir:${profileDir} binPath:${binPath} browserVisible: ${browserVisible}`);
+    console.log(`Getting Google-Chrome: downloadDir: ${downloadDir} profileDir:${profileDir} binPath:${binPath} browserVisible: ${browserVisible}`);
 
     // Set OPTIONS
     var o = new chrome.Options();

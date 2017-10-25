@@ -59,8 +59,8 @@ async function takeScreenshot (driver, name ) {
 async function demo () {
     var downloadDir = "/tmp/demo";
     var profileDir = "/tmp/demoProfile";
-    //var browserVisible = false; 
-    var browserVisible = true;
+    var browserVisible = false; 
+    //var browserVisible = true;
 
     var driver = seleniumDriver.getChrome(downloadDir, profileDir, browserVisible);
     //var driver = seleniumDriver.getChromium(downloadDir, profileDir, browserVisible);
