@@ -62,8 +62,8 @@ async function demo () {
     var browserVisible = false; 
     //var browserVisible = true;
 
-    var driver = seleniumDriver.getChrome(downloadDir, profileDir, browserVisible);
-    //var driver = seleniumDriver.getChromium(downloadDir, profileDir, browserVisible);
+    //var driver = seleniumDriver.getChrome(downloadDir, profileDir, browserVisible);
+    var driver = seleniumDriver.getChromium(downloadDir, profileDir, browserVisible);
     //var driver = seleniumDriver.getSauce();
     //var driver = seleniumDriver.getFirefox(downloadDir, profileDir)
 
@@ -142,6 +142,7 @@ async function demo () {
     var myhandle = await driver.getWindowHandle();
     console.log("my window handle:" , myhandle);
 
+    console.log("sleeping 1000000 seconds");
     await sleep (100000);
     driver.quit();
 

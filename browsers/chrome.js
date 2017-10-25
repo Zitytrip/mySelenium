@@ -12,8 +12,8 @@ async function getChrome1(downloadDir, profileDir) {
 }
 
 function getChrome(downloadDir, profileDir, browserVisible) {
-    //var binPath = "/opt/google/chrome/chrome" // chrome 62 on manjaro
-    var binPath = "/usr/bin/google-chrome"; // chrome 62 on debian jessie
+    var binPath = "/opt/google/chrome/chrome" // chrome 62 on manjaro
+    //var binPath = "/usr/bin/google-chrome"; // chrome 62 on debian jessie
 
 
     console.log(`Getting Google-Chrome: downloadDir: ${downloadDir} profileDir:${profileDir} binPath:${binPath} browserVisible: ${browserVisible}`);
@@ -28,10 +28,10 @@ function getChrome(downloadDir, profileDir, browserVisible) {
         o.setUserPreferences({
             "download.default_directory": downloadDir,
             "download.prompt_for_download": "false",
-            "download.extensions_to_open": ""
-            // "download.directory_upgrade": "true",
+            "download.extensions_to_open": "",
+            "download.directory_upgrade": "true"
         });
-        o.addArguments("download.default_directory=" + downloadDir); // /tmp/bookingScraper");
+        o.addArguments("download.default_directory=" + downloadDir); 
     }
 
 
