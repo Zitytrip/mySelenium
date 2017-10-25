@@ -12,11 +12,16 @@ async function getChrome1(downloadDir, profileDir) {
 }
 
 function getChrome(downloadDir, profileDir, browserVisible) {
- 
-    console.log(`Getting Chrome: downloadDir: ${downloadDir} profileDir:${profileDir} binPath:${binPath} `);
+    //var binPath = "/opt/google/chrome-unstable"; // on debian
+    //var binPath = "/usr/lib/chromium" // on manjaro Xfce
+    var binPath = "/usr/bin/google-chrome"; // chrome 62 on debian jessie
+
+
+    console.log(`Getting Chrome: downloadDir: ${downloadDir} profileDir:${profileDir} binPath:${binPath} browserVisible: ${browserVisible}`);
 
     // Set OPTIONS
     var o = new chrome.Options();
+    o.setChromeBinaryPath(binPath);
 
 
     // Download Directory
@@ -32,10 +37,7 @@ function getChrome(downloadDir, profileDir, browserVisible) {
         o.addArguments("user-data-dir=" + profileDir);
     }
     
-    //var binPath = "/opt/google/chrome-unstable"; // on debian
-    var binPath = "/usr/lib/chromium" // on manjaro Xfce
-    //o.setChromeBinaryPath(binPath);
-
+   
 
     //o.addArguments("--disable-extensions");
  
