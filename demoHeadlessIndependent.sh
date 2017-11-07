@@ -6,11 +6,11 @@ if [ "$(id -u)" == "0" ]; then
 fi
 
 killall Xvfb
-Xvfb :5 -screen 8 1024x768x8 &
+Xvfb :7 -screen 8 1024x768x8 &
 
 echo "Listing known displays:"
 ls /tmp/.X11-unix
 
-export DISPLAY=:5.8
+export DISPLAY=:7.8
 ./demo.sh
 killall Xvfb

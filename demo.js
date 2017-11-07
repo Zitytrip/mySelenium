@@ -35,8 +35,8 @@ async function init_and_print_capabilities () {
     var cookies = await driver.manage().getCookies();
     console.log("cookies: " + JSON.stringify(cookies));
 
-    //console.log("setting window size 2000 * 2200");
-    //await driver.manage().window().setSize(1600, 1200);
+    console.log("setting window size 2000 * 2200");
+    await driver.manage().window().setSize(1600, 1200);
 
 
     console.log("opening new tab");
