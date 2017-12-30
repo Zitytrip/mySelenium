@@ -1,5 +1,6 @@
 var fs = require("fs"),
     moment = require("moment"),
+    Promise = require("bluebird"),
     sleep = require("sleep-promise");
 
     selenium = require ('selenium-webdriver'),
@@ -13,7 +14,6 @@ var fs = require("fs"),
     seleniumDriver = require ("./seleniumDriver.js");
 
 
-var Promise = require("bluebird");
 Promise.longStackTraces(); // nice stack traces for promises!
 
 
@@ -35,6 +35,10 @@ async function init_and_print_capabilities () {
     var cookies = await driver.manage().getCookies();
     console.log("cookies: " + JSON.stringify(cookies));
 
+    console.log("setting window size 2000 * 2200");
+    await driver.manage().window().setSize(1600, 1200);
+
+
     console.log("opening new tab");
     await driver.executeScript('window.open();');
 
@@ -54,7 +58,7 @@ async function browser_test (driver) {
     await driver.get ("https://www.whatismybrowser.com/");
     await sleep (3000);
 
-    console.log("taking Screenshot of whatismybrowser.com");  
+    console.log("taking Screenshot of whatismybrowser.com");
     await seleniumDriver.saveHtml (driver, "/tmp/whatismybrowser.com.html");
     await seleniumDriver.takeScreenshot (driver, "whatismybrowser.com" );
 }

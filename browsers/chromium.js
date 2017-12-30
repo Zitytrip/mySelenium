@@ -1,5 +1,5 @@
-var fs = require("fs");
-var selenium = require('selenium-webdriver'),
+var fs = require("fs"),
+    selenium = require('selenium-webdriver'),
     By = selenium.By,
     until = selenium.until,
     Select = selenium.Select;
@@ -8,9 +8,9 @@ var selenium = require('selenium-webdriver'),
 
 
 function getChromium(downloadDir, profileDir, browserVisible) {
+
     var logToFile = '/tmp/chromescraper.txt';
     var binPath = "/usr/lib/chromium/chromium"; // on debian and also on manjaro
-   
 
     if  (fs.existsSync (logToFile)) {
         console.log("Unlinking old file: " + logToFile);
@@ -18,14 +18,13 @@ function getChromium(downloadDir, profileDir, browserVisible) {
     }
 
     console.log(`Getting Chromium: binPath: ${binPath} downloadDir: ${downloadDir} profileDir:${profileDir}`);
-   
+
 
     // Set OPTIONS
     var o = new chrome.Options();
     o.setChromeBinaryPath(binPath);
     o.addArguments("--disable-extensions");
     //o.addArguments("disable-popup-blocking");
-    
     // https://peter.sh/experiments/chromium-command-line-switches/
 
     if (browserVisible) {
