@@ -57,3 +57,41 @@ FIND ELEMENTS BY TEXT
     .click('div=Welcome to my Page') 
     .click('div*=Welcome to my')
 
+
+    get - Navigate the browser to a URL.
+
+findElements - Similar to document.querySelectorAll in the browser.
+
+executeScript - Execute raw JavaScript onto the current page.
+
+getText - Get the text content of an element including its children.
+
+isDisplayed - Find out if an element is displayed on the page.
+
+browser.findElements(webdriver.By.css('[href^="/wiki/"]')).then(function(links){
+
+    console.log('Found', links.length, 'Wiki links.' )
+
+    browser.quit();
+
+});
+
+We construct a CSS selector which matches elements that have an attribute of href and a value starting with /wiki/ (e.g. internal Wiki links
+
+function findTutsPlusLink() {
+    return browser.findElements(webdriver.By.css('[href="http://code.tutsplus.com/"]')).then(function(result) {
+        return result[0];
+    });
+}
+ 
+function closeBrowser() {
+    browser.quit();
+}
+ 
+browser.get('https://www.google.com');
+browser.findElement(webdriver.By.name('q')).sendKeys('tuts+ code');
+browser.findElement(webdriver.By.name('btnG')).click();
+browser.wait(findTutsPlusLink, 2000).then(clickLink).then(logTitle).then(closeBrowser, handleFailure);
+Running
+
+
