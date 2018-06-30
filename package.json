@@ -1,26 +1,27 @@
 {
-  "name": "myselenium",
-  "version": "1.0.0",
-  "description": "",
-  "main": "demoSeleniumDownloadFile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/awb99/mySelenium.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/awb99/mySelenium/issues"
-  },
-  "homepage": "https://github.com/awb99/mySelenium#readme",
-  "dependencies": {
-    "bluebird": "^3.5.1",
-    "chromedriver": "^2.40.0",
-    "moment": "^2.19.1",
-    "selenium-webdriver": "^3.6.0",
-    "sleep-promise": "^2.0.0"
-  }
+    "name": "myselenium",
+    "version": "1.0.0",
+    "description": "",
+    "main": "demoSeleniumDownloadFile.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awb99/mySelenium.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/awb99/mySelenium/issues"
+    },
+    "homepage": "https://github.com/awb99/mySelenium#readme",
+    "dependencies": {
+        "bluebird": "^3.5.1",
+        "chromedriver": "^2.40.0",
+        "moment": "^2.19.1",
+        "selenium-webdriver": "^3.6.0",
+        "sleep-promise": "^2.0.0"
+
+    }
 }

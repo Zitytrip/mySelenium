@@ -51,6 +51,9 @@ INSTALLATION
 
 http://webdriver.io/guide/usage/repl.html
 
+http://webdriver.io/guide/usage/selectors.html
 
-
+FIND ELEMENTS BY TEXT
+    .click('div=Welcome to my Page') 
+    .click('div*=Welcome to my')
 
