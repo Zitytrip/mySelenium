@@ -18,10 +18,9 @@
     "homepage": "https://github.com/awb99/mySelenium#readme",
     "dependencies": {
         "bluebird": "^3.5.1",
-        "chromedriver": "^2.40.0",
+        "chromedriver": "^2.43.1",
         "moment": "^2.19.1",
         "selenium-webdriver": "^3.6.0",
         "sleep-promise": "^2.0.0"
-
     }
 }
